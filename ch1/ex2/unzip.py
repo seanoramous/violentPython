@@ -24,10 +24,13 @@ def main():
         
     zFile = zipfile.ZipFile(zname)
     passFile = open(dname)
+    i = 1
     
     for line in passFile.readlines():
         password = line.strip('\n')
         t = Thread(target=extractFile, args=(zFile, password))
+        print str(i) + '\r',
+        i = i + 1
         t.start()
 
 if __name__=='__main__':
