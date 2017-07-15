@@ -1,5 +1,6 @@
 import zipfile
 import optparse
+import threading
 from threading import Thread
 
 def extractFile(zFile, password):
@@ -8,6 +9,7 @@ def extractFile(zFile, password):
         print '[+] Found password ' + password + '\n'
     except:
         pass
+    print threading.active_count()
 
 def main():
     parser = optparse.OptionParser("usage%prog -f <zipfile> -d <dictionary>")
